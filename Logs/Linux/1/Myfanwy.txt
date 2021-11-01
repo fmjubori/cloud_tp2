@@ -1,0 +1,61 @@
+	File System Counters
+		FILE: Number of bytes read=45553
+		FILE: Number of bytes written=619061
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=65806
+		HDFS: Number of bytes written=32331
+		HDFS: Number of read operations=8
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=1721
+		Total time spent by all reduces in occupied slots (ms)=1693
+		Total time spent by all map tasks (ms)=1721
+		Total time spent by all reduce tasks (ms)=1693
+		Total vcore-milliseconds taken by all map tasks=1721
+		Total vcore-milliseconds taken by all reduce tasks=1693
+		Total megabyte-milliseconds taken by all map tasks=1762304
+		Total megabyte-milliseconds taken by all reduce tasks=1733632
+	Map-Reduce Framework
+		Map input records=1181
+		Map output records=11953
+		Map output bytes=113349
+		Map output materialized bytes=45553
+		Input split bytes=112
+		Combine input records=11953
+		Combine output records=3344
+		Reduce input groups=3344
+		Reduce shuffle bytes=45553
+		Reduce input records=3344
+		Reduce output records=3344
+		Spilled Records=6688
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=23
+		CPU time spent (ms)=1270
+		Physical memory (bytes) snapshot=542511104
+		Virtual memory (bytes) snapshot=5546323968
+		Total committed heap usage (bytes)=528482304
+		Peak Map Physical memory (bytes)=302678016
+		Peak Map Virtual memory (bytes)=2768797696
+		Peak Reduce Physical memory (bytes)=239833088
+		Peak Reduce Virtual memory (bytes)=2777526272
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=65694
+	File Output Format Counters 
+		Bytes Written=32331
+

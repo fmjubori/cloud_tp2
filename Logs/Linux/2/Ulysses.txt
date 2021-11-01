@@ -1,0 +1,60 @@
+	File System Counters
+		FILE: Number of bytes read=725338
+		FILE: Number of bytes written=1978631
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=1572870
+		HDFS: Number of bytes written=527758
+		HDFS: Number of read operations=8
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=2250
+		Total time spent by all reduces in occupied slots (ms)=1772
+		Total time spent by all map tasks (ms)=2250
+		Total time spent by all reduce tasks (ms)=1772
+		Total vcore-milliseconds taken by all map tasks=2250
+		Total vcore-milliseconds taken by all reduce tasks=1772
+		Total megabyte-milliseconds taken by all map tasks=2304000
+		Total megabyte-milliseconds taken by all reduce tasks=1814528
+	Map-Reduce Framework
+		Map input records=32796
+		Map output records=268010
+		Map output bytes=2602095
+		Map output materialized bytes=725338
+		Input split bytes=112
+		Combine input records=268010
+		Combine output records=50111
+		Reduce input groups=50111
+		Reduce shuffle bytes=725338
+		Reduce input records=50111
+		Reduce output records=50111
+		Spilled Records=100222
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=24
+		CPU time spent (ms)=3150
+		Physical memory (bytes) snapshot=573407232
+		Virtual memory (bytes) snapshot=5555658752
+		Total committed heap usage (bytes)=528482304
+		Peak Map Physical memory (bytes)=353374208
+		Peak Map Virtual memory (bytes)=2776764416
+		Peak Reduce Physical memory (bytes)=220033024
+		Peak Reduce Virtual memory (bytes)=2778894336
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=1572758
+	File Output Format Counters 
+		Bytes Written=527758
