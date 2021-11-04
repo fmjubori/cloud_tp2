@@ -23,30 +23,25 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class PYMK {
 	static public class friendCounts implements Writable {
-		public Long userId, mutualFriends;
-
+		public Long userID, comFriends;
+		
 		public void readFields(DataInput in) throws IOException {
-			userId = in.readLong();
-			mutualFriends = in.readLong();
+			userID = in.readLong();
+			comFriends = in.readLong();
 		}
 		
 		public void write(DataOutput out) throws IOException {
-			out.writeLong(userId);
-			out.writeLong(mutualFriends);
+			out.writeLong(userID);
+			out.writeLong(comFriends);
 		}
 		
-		public friendCounts(Long userId, Long mutualFriends) {
-			this.userId = userId;
-			this.mutualFriends = mutualFriends;
+		public friendCounts(Long userID, Long comFriends) {
+			this.userID = userID;
+			this.comFriends = comFriends;
 		}
 		
 		public friendCounts() {
 			this(-1L, -1L);
-		}
-		
-		public String toString() {
-			return " toUser: "
-					+ Long.toString(userId) + " Mutual Friends: " + Long.toString(mutualFriends);
 		}
 	}
 
@@ -55,21 +50,21 @@ public class PYMK {
 	public static class PYMKMapper extends Mapper<LongWritable, Text, LongWritable, friendCounts> {
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 			String line[] = value.toString().split("\t");
-			Long f_user = Long.parseLong(line[0]); 					//from User
-			List<Long> to_user = new ArrayList<Long>(); 			//to user
+			Long User = Long.parseLong(line[0]); 					//User ID
+			List<Long> Users_List = new ArrayList<Long>(); 			//Users list (Friends)
 			if (line.length == 2) {
 				StringTokenizer token = new StringTokenizer(line[1], ",");
 				while (token.hasMoreTokens()) {
 					Long toUser = Long.parseLong(token.nextToken());
-					to_user.add(toUser);
-					context.write(new LongWritable(f_user), new friendCounts(toUser, -1L));
+					Users_List.add(toUser);
+					context.write(new LongWritable(User), new friendCounts(toUser, -1L));
 				}
 				
 				
-				for (int a = 0; a < to_user.size(); a++) {
-					for (int b = a + 1; b < to_user.size(); b++) {
-						context.write(new LongWritable(to_user.get(a)), new friendCounts((to_user.get(b)), f_user));
-						context.write(new LongWritable(to_user.get(b)), new friendCounts((to_user.get(a)), f_user));
+				for (int a = 0; a < Users_List.size(); a++) {
+					for (int b = a + 1; b < Users_List.size(); b++) {
+						context.write(new LongWritable(Users_List.get(a)), new friendCounts((Users_List.get(b)), User));
+						context.write(new LongWritable(Users_List.get(b)), new friendCounts((Users_List.get(a)), User));
 					}
 				}
 			}
@@ -81,27 +76,27 @@ public class PYMK {
 	public static class PYMKReducer extends Reducer<LongWritable, friendCounts, LongWritable, Text> {
 		public void reduce(LongWritable key, Iterable<friendCounts> values, Context context)
 				throws IOException, InterruptedException {
-			final java.util.Map<Long, List<Long>> mutualFriends = new HashMap<Long, List<Long>>();
+			final java.util.Map<Long, List<Long>> comFriends = new HashMap<Long, List<Long>>();
 			for (friendCounts value : values) {
-				final Boolean isFriend = (value.mutualFriends == -1);
-				final Long toUser = value.userId;
-				final Long mutualFriend = value.mutualFriends;
+				final Boolean isFriend = (value.comFriends == -1);
+				final Long toUser = value.userID;
+				final Long mutualFriend = value.comFriends;
 
-				if (mutualFriends.containsKey(toUser)) {
+				if (comFriends.containsKey(toUser)) {
 					if (isFriend) {
-						mutualFriends.put(toUser, null);
-					} else if (mutualFriends.get(toUser) != null) {
-						mutualFriends.get(toUser).add(mutualFriend);
+						comFriends.put(toUser, null);
+					} else if (comFriends.get(toUser) != null) {
+						comFriends.get(toUser).add(mutualFriend);
 					}
 				} else {
 					if (!isFriend) {
-						mutualFriends.put(toUser, new ArrayList<Long>() {
+						comFriends.put(toUser, new ArrayList<Long>() {
 							{
 								add(mutualFriend);
 							}
 						});
 					} else {
-						mutualFriends.put(toUser, null);
+						comFriends.put(toUser, null);
 					}
 				}
 			}
@@ -109,8 +104,8 @@ public class PYMK {
 			// Sorting all the Mutual friends using Tree Map
 			java.util.SortedMap<Long, List<Long>> sortFriends = new TreeMap<Long, List<Long>>(new Comparator<Long>() {
 				public int compare(Long key1, Long key2) {
-					Integer value1 = mutualFriends.get(key1).size();
-					Integer value2 = mutualFriends.get(key2).size();
+					Integer value1 = comFriends.get(key1).size();
+					Integer value2 = comFriends.get(key2).size();
 					if (value1 > value2) {
 						return -1;
 					} else if (value1.equals(value2) && key1 < key2) {
@@ -121,7 +116,7 @@ public class PYMK {
 				}
 			});
 
-			for (java.util.Map.Entry<Long, List<Long>> entry : mutualFriends.entrySet()) {
+			for (java.util.Map.Entry<Long, List<Long>> entry : comFriends.entrySet()) {
 				if (entry.getValue() != null) {
 					sortFriends.put(entry.getKey(), entry.getValue());
 				}
