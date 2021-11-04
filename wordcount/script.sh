@@ -1,0 +1,32 @@
+#!/bin/bash
+
+ time hadoop jar wc.jar WordCount /WordCount/input/Ulysses.txt /WordCount/output/Ulysses_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Ulysses.txt /WordCount/output/Ulysses_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Ulysses.txt /WordCount/output/Ulysses_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Bumps.txt /WordCount/output/Bumps_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Bumps.txt /WordCount/output/Bumps_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Bumps.txt /WordCount/output/Bumps_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Canadian.txt /WordCount/output/Canadian_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Canadian.txt /WordCount/output/Canadian_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Canadian.txt /WordCount/output/Canadian_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/DarkBahama.txt /WordCount/output/DarkBahama_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/DarkBahama.txt /WordCount/output/DarkBahama_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/DarkBahama.txt /WordCount/output/DarkBahama_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/France.txt /WordCount/output/France_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/France.txt /WordCount/output/France_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/France.txt /WordCount/output/France_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Horizons.txt /WordCount/output/Horizons_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Horizons.txt /WordCount/output/Horizons_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Horizons.txt /WordCount/output/Horizons_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Lucy.txt /WordCount/output/Lucy_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Lucy.txt /WordCount/output/Lucy_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Lucy.txt /WordCount/output/Lucy_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Midwinter.txt /WordCount/output/Midwinter_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Midwinter.txt /WordCount/output/Midwinter_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Midwinter.txt /WordCount/output/Midwinter_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Myfanwy.txt /WordCount/output/MyFanwy_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Myfanwy.txt /WordCount/output/MyFanwy_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Myfanwy.txt /WordCount/output/MyFanwy_R3
+ time hadoop jar wc.jar WordCount /WordCount/input/Penny.txt /WordCount/output/Penny_R1
+ time hadoop jar wc.jar WordCount /WordCount/input/Penny.txt /WordCount/output/Penny_R2
+ time hadoop jar wc.jar WordCount /WordCount/input/Penny.txt /WordCount/output/Penny_R3
