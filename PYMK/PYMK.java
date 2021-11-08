@@ -33,7 +33,7 @@ public class PYMK {
 		note that the ID and the degree can not be int because The key class of a mapper that maps text files is always LongWritable. 
 		That is because it contains the byte offset of the current line and this could easily overflow an integer.
 
-		The answer taken from StackOverflow (Hadoop: LongWritable cannot be cast to org.apache.hadoop.io.IntWritabl)
+		The answer taken from StackOverflow 
 		https://stackoverflow.com/questions/14922087/hadoop-longwritable-cannot-be-cast-to-org-apache-hadoop-io-intwritable
 
 
