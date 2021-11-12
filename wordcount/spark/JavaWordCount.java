@@ -23,8 +23,7 @@ public class JavaWordCount {
             System.err.println("Usage: JavaWordCount <file>");
             System.exit(1);
         }
-        SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount")
-            .setMaster("local");
+        SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
         JavaSparkContext ctx = new JavaSparkContext(sparkConf);
         JavaRDD<String> lines = ctx.textFile(args[0], 1);
 
