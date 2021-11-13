@@ -25,8 +25,8 @@ public class PYMK {
 		Friends degree is sort of a touple (friend , degree).
 		for each user, this object shows the type of friendship that the user has with another user.
 
-		1 => first degree friendship : users are friend with each other directly
-		2 => second degree friendship : users are both friends to a same user. 
+		-1 => first degree friendship : users are friend with each other directly
+		userId => second degree friendship : users are both friends to a same user. 
 
 		note that the ID and the degree can not be int because The key class of a mapper that maps text files is always LongWritable. 
 		That is because it contains the byte offset of the current line and this could easily overflow an integer.
